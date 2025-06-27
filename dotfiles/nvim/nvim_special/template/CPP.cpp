@@ -8,7 +8,7 @@
 //
 #include <bits/stdc++.h>
 using namespace std;
-#ifdef MOHAMED
+#ifdef JOE
 //#include "debug.hpp"
 #else
 #define debug(...) 0
