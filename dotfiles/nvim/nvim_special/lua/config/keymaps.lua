@@ -74,13 +74,4 @@ end)
 vim.api.nvim_create_user_command("ToggleAutoformat", function()
 	require("craftzdog.lsp").toggleAutoformat()
 end, {})
-vim.opt.mouse = "a"
-vim.keymap.set("n", "<F10>", function()
-  if vim.o.mouse == "a" then
-    vim.o.mouse = ""
-    print("Mouse Disabled")
-  else
-    vim.o.mouse = "a"
-    print("Mouse Enabled")
-  end
-end)
+
