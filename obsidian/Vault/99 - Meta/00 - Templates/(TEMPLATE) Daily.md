@@ -66,18 +66,18 @@ Customize this template to your liking!
 
 ---
 
-### The study:
+### The study
 
 hours of studying :
   
 ---  
-### Touch Typing:
+### Touch Typing
 
 - [ ] 15 minutes
 
 ---  
 
-### Sleep Log:
+### Sleep Log
 
 | Sleep Time | Wake Time | Hours Slept |
 | ---------- | --------- | ----------- |
@@ -85,12 +85,12 @@ hours of studying :
   
 ---  
 
-### The Phone:
+### The Phone
 
 - [ ] Using less than 30 minutes
 
 ---  
-### Daily Score:
+### Daily Score
 
 - Study: /10
 - Worship: /10
@@ -98,7 +98,7 @@ hours of studying :
 
 ---  
 
-### Summary:
+### Summary
 
 - 
 
