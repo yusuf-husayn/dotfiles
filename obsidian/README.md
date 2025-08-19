@@ -1,56 +1,33 @@
-# Obsidian Vault – PARA Organization
+# Obsidian Vault – PARA Method
 
-![Obsidian](https://upload.wikimedia.org/wikipedia/commons/3/34/Obsidian_Logo.svg)
-
-This is my **personal Obsidian Vault**, structured using the **PARA Method** (Projects, Areas, Resources, Archives) for maximum productivity and knowledge management.
+This vault is organized using the **PARA method**: Projects, Areas, Resources, Archives.  
+It provides a clean and structured system for note-taking and knowledge management.
 
 ---
 
-## 📂 Vault Structure
+## Folder Structure
 
 ### Projects
 Short-term objectives with defined outcomes.  
-**Purpose:** Track active projects and their progress.  
-**Example Folders:**  
-- `Project - CCNA Preparation`  
-- `Project - Personal Website`
+Contains all active projects and tasks.
 
 ### Areas
-Ongoing responsibilities and domains of focus.  
-**Purpose:** Maintain continuous areas of life/work.  
-**Example Folders:**  
-- `Area - Fitness`  
-- `Area - Work`  
-- `Area - Learning`
+Ongoing responsibilities and continuous domains.  
+Tracks recurring duties and areas of focus.
 
 ### Resources
-Reference materials, tutorials, and guides.  
-**Purpose:** Collect useful information for current or future projects.  
-**Example Folders:**  
-- `Resource - Networking Notes`  
-- `Resource - Programming Cheatsheets`
+Reference materials, notes, and supporting content.  
+Holds all sources that support projects or areas.
 
 ### Archives
 Completed or inactive items.  
-**Purpose:** Keep old projects and notes without cluttering active folders.  
-**Example Folders:**  
-- `Archives - Old Projects`  
-- `Archives - Past Courses`
+Keeps past projects and notes without cluttering active folders.
 
 ---
 
-## ⚡ Features
+## Features
 
-- **Vim Keybindings** via [obsidian-vimrc-support](https://github.com/liu-kai/obsidian-vimrc-support)  
-- Hotkeys for quick navigation between panes and tabs  
-- Custom **file icons** using CSS snippets for enhanced readability  
-- Templates for Projects, Areas, Resources, and Archives  
-- Optimized for **multi-file types** including `.cpp`, `.py`, `.md`, `.pdf`  
-
----
-
-## 🛠️ Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yusuf-husayn/your-vault.git
+- **Vim Keybindings** support via plugin  
+- Hotkeys for fast navigation and workspace management  
+- Optimized structure for PARA method  
+- Supports multiple file types with custom icons
