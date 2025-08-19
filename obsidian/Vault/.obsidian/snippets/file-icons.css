@@ -1,0 +1,216 @@
+/* Programming */
+/* C++ */
+.nav-file-title[data-path$=".cpp"]::before,
+.nav-file-title[data-path$=".cc"]::before,
+.nav-file-title[data-path$=".cxx"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/cpp.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* C */
+.nav-file-title[data-path$=".c"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/c.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Header files */
+.nav-file-title[data-path$=".h"]::before,
+.nav-file-title[data-path$=".hpp"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/hpp.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Other Languages */
+
+
+/* Python */
+.nav-file-title[data-path$=".py"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/python.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.nav-file-title[data-path$=".js"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/javascript.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* JavaScript */
+/* TypeScript */
+.nav-file-title[data-path$=".ts"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/typescript.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* Java */
+.nav-file-title[data-path$=".java"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/java.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* C# */
+.nav-file-title[data-path$=".cs"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/csharp.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* Ruby */
+.nav-file-title[data-path$=".rb"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/ruby.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* Go */
+.nav-file-title[data-path$=".go"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/go.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* Rust */
+.nav-file-title[data-path$=".rs"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/rust.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+/* PHP */
+.nav-file-title[data-path$=".php"]::before {
+  content: "";
+  background: url("https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/php.svg") no-repeat center;
+  background-size: 16px 16px;
+  width: 16px; height: 16px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Shell / Bash */
+.nav-file-title[data-path$=".bash"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg");
+  background-size: 14px 14px;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* Web */
+.nav-file-title[data-path$=".html"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg");
+}
+.nav-file-title[data-path$=".css"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg");
+}
+.nav-file-title[data-path$=".scss"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg");
+}
+.nav-file-title[data-path$=".json"]::before {
+  content: "🗂️ "; /* مفيش لوجو رسمي JSON */
+}
+.nav-file-title[data-path$=".xml"]::before {
+  content: "📰 "; /* XML برضو */
+}
+.nav-file-title[data-path$=".md"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg");
+}
+.nav-file-title[data-path$=".txt"]::before { content: "📑 "; }
+
+/* Data */
+.nav-file-title[data-path$=".csv"]::before { content: "📊 "; }
+.nav-file-title[data-path$=".xlsx"]::before,
+.nav-file-title[data-path$=".xls"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/excel/excel-original.svg");
+}
+.nav-file-title[data-path$=".db"]::before,
+.nav-file-title[data-path$=".sqlite"]::before { content: "🗄️ "; }
+
+/* Media */
+.nav-file-title[data-path$=".png"]::before,
+.nav-file-title[data-path$=".jpg"]::before,
+.nav-file-title[data-path$=".jpeg"]::before,
+.nav-file-title[data-path$=".gif"]::before,
+.nav-file-title[data-path$=".svg"]::before,
+.nav-file-title[data-path$=".ico"]::before { content: "🖼️ "; }
+
+.nav-file-title[data-path$=".mp3"]::before,
+.nav-file-title[data-path$=".wav"]::before,
+.nav-file-title[data-path$=".ogg"]::before { content: "🎧 "; }
+
+.nav-file-title[data-path$=".mp4"]::before,
+.nav-file-title[data-path$=".mkv"]::before,
+.nav-file-title[data-path$=".avi"]::before { content: "🎞️ "; }
+
+/* Archives */
+.nav-file-title[data-path$=".zip"]::before,
+.nav-file-title[data-path$=".rar"]::before,
+.nav-file-title[data-path$=".7z"]::before,
+.nav-file-title[data-path$=".tar"]::before,
+.nav-file-title[data-path$=".gz"]::before { content: "🗜️ "; }
+
+/* Documents */
+.nav-file-title[data-path$=".pdf"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg");
+}
+.nav-file-title[data-path$=".doc"]::before,
+.nav-file-title[data-path$=".docx"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/word/word-original.svg");
+}
+.nav-file-title[data-path$=".ppt"]::before,
+.nav-file-title[data-path$=".pptx"]::before {
+  content: "";
+  background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powerpoint/powerpoint-original.svg");
+}
+
+/* ضبط الأيقونات (مقاس + مكان) */
+.nav-file-title::before {
+  background-size: 14px 14px;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
+}
