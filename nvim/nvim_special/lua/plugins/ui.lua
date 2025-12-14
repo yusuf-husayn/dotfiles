@@ -217,20 +217,114 @@ return {
   "goolord/alpha-nvim",
   event = "VimEnter",
   dependencies = {
-    "MaximilianLloyd/ascii.nvim",
-    "MunifTanjim/nui.nvim",
+    "MaximilianLloyd/ascii.nvim",   -- Random ASCII Headers
+    "MunifTanjim/nui.nvim",         -- UI Component Library
+    "nvim-tree/nvim-web-devicons",  -- Icons
   },
   config = function()
-    local ok1, alpha = pcall(require, "alpha")
-    local ok2, dashboard = pcall(require, "alpha.themes.dashboard")
-    local ok3, ascii = pcall(require, "ascii")
-    if not (ok1 and ok2 and ok3) then
+    -- 1. Safety Checks (Prevent crashes if dependencies are missing)
+    local ok_alpha, alpha = pcall(require, "alpha")
+    local ok_dash, dashboard = pcall(require, "alpha.themes.dashboard")
+    local ok_ascii, ascii = pcall(require, "ascii")
+
+    if not (ok_alpha and ok_dash and ok_ascii) then
       return
     end
 
+    -- 2. Header: Dynamic Hacker Art
+    -- Fetches random ASCII art from the global pool to keep startup fresh
     dashboard.section.header.val = ascii.get_random_global()
-    alpha.setup(dashboard.opts)
+    dashboard.section.header.opts.hl = "AlphaHeader"
+
+    -- 3. Button Generator Helper
+    local function button(sc, txt, keybind, keybind_opts)
+      local b = dashboard.button(sc, txt, keybind, keybind_opts)
+      b.opts.hl = "AlphaButtons"
+      b.opts.hl_shortcut = "AlphaShortcut"
+      return b
+    end
+
+    -- 4. Menu Definition
+    dashboard.section.buttons.val = {
+      -- Group 1: Core File Operations
+      { type = "padding", val = 1 },
+      { type = "text", val = "───  Files  ───", opts = { hl = "Comment", position = "center" } },
+      { type = "padding", val = 1 },
+      button("f", "🔍  Find File",          "<cmd>Telescope find_files<cr>"),
+      button("n", "📄  New File",           "<cmd>ene <BAR> startinsert<cr>"),
+      button("r", "🕒  Recent Files",       "<cmd>Telescope oldfiles<cr>"),
+      button("p", "📁  Projects",           "<cmd>Telescope project<cr>"), -- Useful for switching CP/CTF folders
+
+      -- Group 2: Analysis & CTF Tools
+      { type = "padding", val = 1 },
+      { type = "text", val = "───  Analysis & CTF  ───", opts = { hl = "Comment", position = "center" } },
+      { type = "padding", val = 1 },
+      button("g", "📝  Live Grep (Text)",   "<cmd>Telescope live_grep<cr>"),
+      button("x", "🧬  Hex Editor",         "<cmd>HexToggle<cr>"),
+      button("d", "🧪  Diagnostics",        "<cmd>Trouble diagnostics toggle<cr>"),
+      button("k", "⌨️   Keymaps",            "<cmd>Telescope keymaps<cr>"),
+
+      -- Group 3: Terminal & Version Control
+      { type = "padding", val = 1 },
+      { type = "text", val = "───  Shell & Git  ───", opts = { hl = "Comment", position = "center" } },
+      { type = "padding", val = 1 },
+      button("z", "💻  Terminal",           "<cmd>lua Snacks.terminal.toggle()<cr>"),
+      button("v", "🌳  LazyGit",            "<cmd>lua Snacks.lazygit.toggle()<cr>"),
+
+      -- Group 4: System & Configuration
+      { type = "padding", val = 1 },
+      { type = "text", val = "───  System  ───", opts = { hl = "Comment", position = "center" } },
+      { type = "padding", val = 1 },
+      button("s", "💾  Restore Session",    [[<cmd>lua require("persistence").load()<cr>]]),
+      button("m", "🛠️   Mason (LSP/Tools)", "<cmd>Mason<cr>"),
+      button("l", "📦  Lazy Plugins",       "<cmd>Lazy<cr>"),
+      button("h", "🏥  Check Health",       "<cmd>checkhealth<cr>"),
+      button("q", "🚪  Quit",               "<cmd>qa<cr>"),
+    }
+
+    -- 5. Enhanced Footer: Stats, Time, & Context
+    dashboard.section.footer.val = function()
+      local stats = require("lazy").stats()
+      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+      local version = vim.version()
+      local v_str = " v" .. version.major .. "." .. version.minor .. "." .. version.patch
+      local date = os.date("%d-%m-%Y")
+      local time = os.date("%I:%M %p")
+      local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+
+      return {
+        " ",
+        "⚡ Neovim" .. v_str .. " loaded " .. stats.count .. " plugins in " .. ms .. "ms",
+        "📅 " .. date .. "  ⏰ " .. time,
+        "📂 " .. cwd,
+        " ",
+        "🚩 Happy Hacking & Good Luck! 🚩"
+      }
+    end
+    dashboard.section.footer.opts.hl = "AlphaFooter"
+
+    -- 6. Layout Composition
+    dashboard.config.layout = {
+      { type = "padding", val = 2 },
+      dashboard.section.header,
+      { type = "padding", val = 2 },
+      dashboard.section.buttons,
+      { type = "padding", val = 2 },
+      dashboard.section.footer,
+    }
+
+    -- 7. Initialize
+    alpha.setup(dashboard.config)
+
+    -- 8. Auto-Refresh Footer on Directory Change
+    -- Keeps the CWD in the footer updated if you change folders inside Neovim
+    vim.api.nvim_create_autocmd("DirChanged", {
+      pattern = "*",
+      group = vim.api.nvim_create_augroup("AlphaFooterUpdate", { clear = true }),
+      callback = function()
+        pcall(require("alpha").redraw)
+      end,
+    })
   end,
 },
-
-}
+  }
