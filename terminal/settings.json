@@ -1,47 +1,117 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [],
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "globalSummon",
+                "desktop": "toCurrent",
+                "monitor": "toMouse"
+            },
+            "id": "User.globalSummon.51A3D78C"
+        }
+    ],
+    "alwaysShowTabs": true,
+    "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-      "launchMode": "focus",
+    "initialCols": 120,
+    "initialRows": 40,
     "keybindings": 
     [
-        
         {
-            "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+c"
+            "id": "Terminal.ExportBuffer",
+            "keys": "ctrl+shift+e"
         },
         {
-            "id": "Terminal.OpenNewTab",
-            "keys": "ctrl+t"
+            "id": "Terminal.ResizePaneRight",
+            "keys": "ctrl+alt+l"
+        },
+        {
+            "id": "Terminal.ResizePaneUp",
+            "keys": "ctrl+alt+k"
         },
         {
             "id": "Terminal.OpenNewTab",
             "keys": "ctrl+shift+t"
         },
         {
-            "id": "Terminal.ToggleFocusMode",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": "Terminal.ClosePane",
             "keys": "ctrl+shift+w"
         },
         {
-            "id": "Terminal.PasteFromClipboard",
-            "keys": "ctrl+v"
+            "id": "Terminal.SplitPaneHorizontal",
+            "keys": "alt+shift+minus"
+        },
+        {
+            "id": "Terminal.MoveFocusUp",
+            "keys": "alt+k"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "Terminal.MoveFocusLeft",
+            "keys": "alt+h"
+        },
+        {
+            "id": "Terminal.MoveFocusDown",
+            "keys": "alt+j"
+        },
+        {
+            "id": "Terminal.MoveFocusRight",
+            "keys": "alt+l"
         },
         {
             "id": "Terminal.ToggleFullscreen",
             "keys": "alt+enter"
         },
         {
-            "id": null,
-            "keys": "alt+shift+d"
+            "id": "Terminal.ResizePaneLeft",
+            "keys": "ctrl+alt+h"
+        },
+        {
+            "id": "Terminal.ResizePaneDown",
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "id": "Terminal.NextTab",
+            "keys": "ctrl+tab"
+        },
+        {
+            "id": "Terminal.PrevTab",
+            "keys": "ctrl+shift+tab"
+        },
+        {
+            "id": "Terminal.OpenTabRenamer",
+            "keys": "f2"
+        },
+        {
+            "id": "Terminal.ToggleFocusMode",
+            "keys": "f3"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "Terminal.ToggleCommandPalette",
+            "keys": "ctrl+shift+p"
         }
     ],
+    "launchMode": "focus",
     "newTabMenu": 
     [
         {
@@ -52,92 +122,259 @@
     {
         "defaults": 
         {
+            "antialiasingMode": "grayscale",
+            "bellStyle": "none",
+            "colorScheme": "Solarized Dark Pro",
+            "cursorColor": "#93A1A1",
             "cursorShape": "bar",
             "font": 
             {
-                "face": "Hack Nerd Font"
+                "face": "JetBrainsMono Nerd Font",
+                "size": 11,
+                "weight": "medium"
             },
-            "opacity": 80,
+            "historySize": 20000,
+            "intenseTextStyle": "bold",
+            "opacity": 98,
+            "padding": "2,2,2,2",
+            "scrollbarState": "hidden",
             "startingDirectory": "%USERPROFILE%",
-            "useAcrylic": true
+            "useAcrylic": false
         },
         "list": 
         [
             {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "colorScheme": "Solarized Dark Pro",
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": false,
+                "name": "\ud83d\udc27 Ubuntu (WSL)",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "//wsl$/Ubuntu/home/yusuf",
+                "tabColor": "#859900",
+                "tabTitle": "\ud83d\udc27 Dev"
+            },
+            {
+                "colorScheme": "Gruvbox Dark",
+                "cursorColor": "#FABD2F",
+                "cursorShape": "filledBox",
+                "experimental.retroTerminalEffect": true,
+                "guid": "{aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa}",
+                "hidden": false,
+                "name": "\ud83d\udea9 CTF / WarGame",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "//wsl$/Ubuntu/home/yusuf",
+                "tabColor": "#FAB387",
+                "tabTitle": "\ud83d\udea9 CTF"
+            },
+            {
+                "colorScheme": "Red Alert",
+                "font": 
+                {
+                    "size": 12
+                },
+                "guid": "{bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb}",
+                "hidden": false,
+                "name": "\ud83d\udee1\ufe0f Red Team / Pentest",
+                "padding": "6,6,6,6",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "//wsl$/Ubuntu/home/yusuf",
+                "tabColor": "#F38BA8",
+                "tabTitle": "\ud83d\udee1\ufe0f ATTACK"
+            },
+            {
+                "colorScheme": "Dracula",
+                "guid": "{cccccccc-cccc-cccc-cccc-cccccccccccc}",
+                "hidden": false,
+                "name": "\ud83d\udd77\ufe0f Recon / BugBounty",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
+                "startingDirectory": "//wsl$/Ubuntu/home/yusuf",
+                "tabColor": "#CBA6F7",
+                "tabTitle": "\ud83d\udd77\ufe0f RECON"
+            },
+            {
+                "guid": "{5fb123f1-af88-5b5c-8953-d14a8def1978}",
+                "hidden": false,
+                "name": "\ud83e\ude9f PowerShell Core",
+                "source": "Windows.Terminal.PowershellCore",
+                "tabColor": "#268BD2",
+                "tabTitle": "\ud83e\ude9f PWSH"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "\ud83c\udf31 Git Bash",
+                "source": "Git",
+                "tabColor": "#6C71C4",
+                "tabTitle": "\ud83c\udf31 GIT"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": true,
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Command Prompt"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "colorScheme": "Solarized Dark (bright)",
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "opacity": 70,
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
-                "useAcrylic": true
-            },
-            {
-                "colorScheme": "Solarized Dark (bright)",
-                "font": 
-                {
-                    "face": "Hack Nerd Font",
-                    "size": 12
-                },
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": true,
-                "name": "Ubuntu (WSL2)",
-                "opacity": 80,
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "//wsl$/Ubuntu/home/yusuf",
-                "useAcrylic": true
-            },
-            {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
     "schemes": 
     [
         {
-            "background": "#1F5662",
-            "black": "#0A3B4A",
-            "blue": "#3795E6",
-            "brightBlack": "#1E4B5B",
-            "brightBlue": "#A0C6DB",
-            "brightCyan": "#A6D4D4",
-            "brightGreen": "#80C290",
-            "brightPurple": "#9F84C9",
-            "brightRed": "#E96F4C",
+            "background": "#1E1E2E",
+            "black": "#45475A",
+            "blue": "#89B4FA",
+            "brightBlack": "#585B70",
+            "brightBlue": "#89B4FA",
+            "brightCyan": "#94E2D5",
+            "brightGreen": "#A6E3A1",
+            "brightPurple": "#F5C2E7",
+            "brightRed": "#F38BA8",
+            "brightWhite": "#A6ADC8",
+            "brightYellow": "#F9E2AF",
+            "cursorColor": "#F5E0DC",
+            "cyan": "#94E2D5",
+            "foreground": "#CDD6F4",
+            "green": "#A6E3A1",
+            "name": "Catppuccin Mocha",
+            "purple": "#F5C2E7",
+            "red": "#F38BA8",
+            "selectionBackground": "#585B70",
+            "white": "#BAC2DE",
+            "yellow": "#F9E2AF"
+        },
+        {
+            "background": "#282A36",
+            "black": "#21222C",
+            "blue": "#BD93F9",
+            "brightBlack": "#6272A4",
+            "brightBlue": "#D6ACFF",
+            "brightCyan": "#A4FFFF",
+            "brightGreen": "#69FF94",
+            "brightPurple": "#FF92DF",
+            "brightRed": "#FF6E6E",
             "brightWhite": "#FFFFFF",
-            "brightYellow": "#C3CFA5",
-            "cursorColor": "#00FF00",
-            "cyan": "#3FBFBF",
-            "foreground": "#D0D5D5",
-            "green": "#98C379",
-            "name": "Solarized Dark (bright)",
-            "purple": "#D67ADD",
-            "red": "#F75F5F",
-            "selectionBackground": "#FFFFFF",
-            "white": "#E5E5DC",
-            "yellow": "#E0C86A"
+            "brightYellow": "#FFFFA5",
+            "cursorColor": "#F8F8F2",
+            "cyan": "#8BE9FD",
+            "foreground": "#F8F8F2",
+            "green": "#50FA7B",
+            "name": "Dracula",
+            "purple": "#FF79C6",
+            "red": "#FF5555",
+            "selectionBackground": "#44475A",
+            "white": "#F8F8F2",
+            "yellow": "#F1FA8C"
+        },
+        {
+            "background": "#282828",
+            "black": "#282828",
+            "blue": "#458588",
+            "brightBlack": "#928374",
+            "brightBlue": "#83A598",
+            "brightCyan": "#8EC07C",
+            "brightGreen": "#B8BB26",
+            "brightPurple": "#D3869B",
+            "brightRed": "#FB4934",
+            "brightWhite": "#EBDBB2",
+            "brightYellow": "#FABD2F",
+            "cursorColor": "#EBDBB2",
+            "cyan": "#689D6A",
+            "foreground": "#EBDBB2",
+            "green": "#98971A",
+            "name": "Gruvbox Dark",
+            "purple": "#B16286",
+            "red": "#CC241D",
+            "selectionBackground": "#EBDBB2",
+            "white": "#A89984",
+            "yellow": "#D79921"
+        },
+        {
+            "background": "#1A0B0C",
+            "black": "#2C001E",
+            "blue": "#3465A4",
+            "brightBlack": "#555753",
+            "brightBlue": "#729FCF",
+            "brightCyan": "#06989A",
+            "brightGreen": "#4E9A06",
+            "brightPurple": "#AD7FA8",
+            "brightRed": "#CC0000",
+            "brightWhite": "#D3D7CF",
+            "brightYellow": "#C4A000",
+            "cursorColor": "#FF0000",
+            "cyan": "#34E2E2",
+            "foreground": "#FFEAEA",
+            "green": "#8AE234",
+            "name": "Red Alert",
+            "purple": "#75507B",
+            "red": "#EF2929",
+            "selectionBackground": "#440000",
+            "white": "#EEEEEC",
+            "yellow": "#FCE94F"
+        },
+        {
+            "background": "#002B36",
+            "black": "#073642",
+            "blue": "#268BD2",
+            "brightBlack": "#586E75",
+            "brightBlue": "#657B83",
+            "brightCyan": "#93A1A1",
+            "brightGreen": "#93A1A1",
+            "brightPurple": "#6C71C4",
+            "brightRed": "#CB4B16",
+            "brightWhite": "#FDF6E3",
+            "brightYellow": "#839496",
+            "cursorColor": "#93A1A1",
+            "cyan": "#2AA198",
+            "foreground": "#E0E2E4",
+            "green": "#859900",
+            "name": "Solarized Dark Pro",
+            "purple": "#D33682",
+            "red": "#DC322F",
+            "selectionBackground": "#073642",
+            "white": "#EEE8D5",
+            "yellow": "#B58900"
         }
     ],
-    "themes": []
+    "showTabsInTitlebar": true,
+    "snapToGridOnResize": false,
+    "tabSwitcherMode": "inOrder",
+    "tabWidthMode": "titleLength",
+    "theme": "Solarized Integrated",
+    "themes": 
+    [
+        {
+            "name": "Solarized Integrated",
+            "tab": 
+            {
+                "background": "#1F5662FF",
+                "iconStyle": "default",
+                "showCloseButton": "hover",
+                "unfocusedBackground": "#002B36FF"
+            },
+            "tabRow": 
+            {
+                "background": "#002B36FF",
+                "unfocusedBackground": "#002B36FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        }
+    ],
+    "trimBlockSelection": true,
+    "warning.confirmCloseAllTabs": true,
+    "wordDelimiters": " /\\()\"':,.;<>~!@#$%^&*|+=[]{}~?\u2502"
 }
