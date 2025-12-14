@@ -1,161 +1,142 @@
--- coding.lua
--- Coding utilities for CTF, CP, Red Team, Pentesting
--- Stable. Conflict-free. Language-agnostic.
+-- Neovim Debugger (DAP) – FINAL STABLE
+-- Zero mouse. Vim-style. CTF / CP / Pentest ready.
 
 return {
-
-------------------------------------------------------------
--- Competitive Programming
-------------------------------------------------------------
-{
-  "xeluxee/competitest.nvim",
-  dependencies = { "MunifTanjim/nui.nvim" },
-  cmd = {
-    "CompetiTest",
-  },
-  keys = {
-    { "<leader>cr", "<cmd>CompetiTest receive contest<cr>", desc = "CP receive contest" },
-    { "<leader>cp", "<cmd>CompetiTest receive problem<cr>", desc = "CP receive problem" },
-    { "<leader>ca", "<cmd>CompetiTest add_testcase<cr>", desc = "CP add testcase" },
-    { "<leader>ce", "<cmd>CompetiTest edit_testcase<cr>", desc = "CP edit testcase" },
-    { "<leader>ct", "<cmd>CompetiTest run<cr>", desc = "CP run" },
-    { "<leader>cd", "<cmd>CompetiTest delete_testcase<cr>", desc = "CP delete testcase" },
-  },
-  config = function()
-    require("competitest").setup({
-
-      ------------------------------------------------------
-      -- Compile commands
-      ------------------------------------------------------
-      compile_command = {
-        c = {
-          exec = "gcc",
-          args = { "-O2", "-Wall", "-Wextra", "$(FNAME)", "-o", "$(FNOEXT)" },
-        },
-        cpp = {
-          exec = "g++",
-          args = { "-std=gnu++20", "-O2", "-Wall", "-Wextra", "$(FNAME)", "-o", "$(FNOEXT)" },
-        },
-        py = {
-          exec = "python3",
-          args = { "$(FNAME)" },
-        },
-        rust = {
-          exec = "rustc",
-          args = { "-O", "$(FNAME)" },
-        },
-        java = {
-          exec = "javac",
-          args = { "$(FNAME)" },
-        },
-      },
-
-      ------------------------------------------------------
-      -- Paths
-      ------------------------------------------------------
-      received_problems_path =
-        "$(HOME)/Competitive Programming/$(JUDGE)/$(CONTEST)/$(PROBLEM).$(FEXT)",
-      received_contests_directory =
-        "$(HOME)/Competitive Programming/$(JUDGE)/$(CONTEST)",
-      received_contests_problems_path = "$(PROBLEM).$(FEXT)",
-
-      ------------------------------------------------------
-      -- Behavior
-      ------------------------------------------------------
-      received_problems_prompt_path = false,
-      received_contests_prompt_directory = false,
-      received_contests_prompt_extension = false,
-      open_received_contests = false,
-
-      testcases_use_single_file = true,
-      evaluate_template_modifiers = true,
-
-      ------------------------------------------------------
-      -- Defaults
-      ------------------------------------------------------
-      received_files_extension = "cpp",
-      template_file = {
-        cpp = "~/.config/nvim/template/CPP.cpp",
-      },
-    })
-  end,
-},
-
-------------------------------------------------------------
--- Incremental rename
-------------------------------------------------------------
-{
-  "smjonas/inc-rename.nvim",
-  cmd = "IncRename",
-  config = true,
-},
-
-------------------------------------------------------------
--- Better motions with brackets
-------------------------------------------------------------
-{
-  "nvim-mini/mini.bracketed",
-  event = "BufReadPost",
-  config = function()
-    require("mini.bracketed").setup({
-      file = { suffix = "" },
-      window = { suffix = "" },
-      quickfix = { suffix = "" },
-      yank = { suffix = "" },
-      treesitter = { suffix = "n" },
-    })
-  end,
-},
-
-------------------------------------------------------------
--- Smarter increment / decrement
--- Does NOT override global <C-a>/<C-x>
-------------------------------------------------------------
-{
-  "monaqa/dial.nvim",
-  keys = {
-    { "<leader>+", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
-    { "<leader>-", function() return require("dial.map").dec_normal() end, expr = true, desc = "Decrement" },
-  },
-  config = function()
-    local augend = require("dial.augend")
-    require("dial.config").augends:register_group({
-      default = {
-        augend.integer.alias.decimal,
-        augend.integer.alias.hex,
-        augend.date.alias["%Y/%m/%d"],
-        augend.constant.alias.bool,
-        augend.semver.alias.semver,
-        augend.constant.new({ elements = { "let", "const", "var" } }),
-      },
-    })
-  end,
-},
-
-------------------------------------------------------------
--- Copilot
--- Disabled by default. Safe toggle.
-------------------------------------------------------------
-{
-  "zbirenbaum/copilot.lua",
-  enabled = false,
-  cmd = "Copilot",
-  opts = {
-    suggestion = {
-      auto_trigger = false,
-      keymap = {
-        accept = "<C-l>",
-        next = "<M-]>",
-        prev = "<M-[>",
-        dismiss = "<C-]>",
-      },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
     },
-    filetypes = {
-      markdown = true,
-      help = true,
-      gitcommit = true,
-    },
-  },
-},
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
 
+      ------------------------------------------------------------------
+      -- DAP UI
+      ------------------------------------------------------------------
+      dapui.setup({
+        layouts = {
+          {
+            elements = {
+              { id = "scopes", size = 0.35 },
+              { id = "breakpoints", size = 0.15 },
+              { id = "stacks", size = 0.25 },
+              { id = "watches", size = 0.25 },
+            },
+            size = 40,
+            position = "left",
+          },
+          {
+            elements = {
+              "repl",
+              "console",
+            },
+            size = 10,
+            position = "bottom",
+          },
+        },
+        controls = { enabled = false },
+      })
+
+      dap.listeners.after.event_initialized["dapui"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui"] = function()
+        dapui.close()
+      end
+
+      ------------------------------------------------------------------
+      -- Keymaps (Leader = Space)
+      ------------------------------------------------------------------
+      local map = vim.keymap.set
+      local opts = { silent = true }
+
+      map("n", "<leader>db", dap.toggle_breakpoint, opts)
+      map("n", "<leader>dB", function()
+        dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end, opts)
+
+      map("n", "<leader>dc", dap.continue, opts)
+      map("n", "<leader>dn", dap.step_over, opts)
+      map("n", "<leader>di", dap.step_into, opts)
+      map("n", "<leader>do", dap.step_out, opts)
+      map("n", "<leader>dq", dap.terminate, opts)
+
+      map("n", "<leader>dr", dap.repl.open, opts)
+      map("n", "<leader>dl", dap.run_last, opts)
+
+      map("n", "<leader>du", dapui.toggle, opts)
+      map("n", "<leader>dh", function()
+        dapui.eval(nil, { enter = true })
+      end, opts)
+
+      ------------------------------------------------------------------
+      -- C / C++ / Rust (gdb via lldb-vscode)
+      ------------------------------------------------------------------
+      dap.adapters.lldb = {
+        type = "executable",
+        command = "lldb-vscode",
+        name = "lldb",
+      }
+
+      dap.configurations.c = {
+        {
+          name = "Launch (C/C++)",
+          type = "lldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopOnEntry = false,
+          args = {},
+        },
+      }
+
+      dap.configurations.cpp = dap.configurations.c
+      dap.configurations.rust = dap.configurations.c
+
+      ------------------------------------------------------------------
+      -- Python (debugpy)
+      ------------------------------------------------------------------
+      dap.adapters.python = {
+        type = "executable",
+        command = "python3",
+        args = { "-m", "debugpy.adapter" },
+      }
+
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          pythonPath = function()
+            return "python3"
+          end,
+        },
+      }
+
+      ------------------------------------------------------------------
+      -- Visual signs
+      ------------------------------------------------------------------
+      vim.fn.sign_define("DapBreakpoint", {
+        text = "●",
+        texthl = "Error",
+        linehl = "",
+        numhl = "",
+      })
+
+      vim.fn.sign_define("DapStopped", {
+        text = "▶",
+        texthl = "String",
+        linehl = "Visual",
+        numhl = "",
+      })
+    end,
+  },
 }
