@@ -1,6 +1,4 @@
-# Question 1:
-
->[!Question]
+ >[!Question] 1
 
 - [ ] 
 >[!Reason]
@@ -9,9 +7,7 @@
 - [ ] 
   
 ---
-# Question 2:
-
->[!Question]
+>[!Question] 2
 
 - [ ] 
 >[!Reason]
@@ -20,9 +16,7 @@
 - [ ] 
  
 ---
-# Question 3:
-
->[!Question]
+>[!Question] 3
 
 - [ ] 
 >[!Reason]
@@ -34,9 +28,7 @@
 - [ ] 
 
 ---
-# Question 4:
-
->[!Question]
+>[!Question] 4
 
 - [ ] 
 >[!Reason]
@@ -48,9 +40,7 @@
 - [ ] 
 
 ---
-# Question 5:
-
->[!Question]
+>[!Question] 5
 
 - [ ] 
 >[!Reason]
@@ -59,9 +49,7 @@
 - [ ] 
 
 ---
-# Question 6:
-
->[!Question]
+>[!Question] 6
 
 - [ ] 
 >[!Reason]
@@ -70,10 +58,7 @@
 - [ ] 
 
 ---
-# Question 7:
-
->[!Question]
-
+>[!Question] 7
 
 - [ ] 
 >[!Reason]
@@ -85,9 +70,7 @@
 - [ ] 
 
 ---
-# Question 8:
-
->[!Question]
+>[!Question] 8
 
 - [ ] 
 >[!Reason]
@@ -96,9 +79,7 @@
 - [ ] 
 
 ---
-# Question 9:
-
->[!Question]
+>[!Question] 9
 
 - [ ] 
 >[!Reason]
@@ -107,9 +88,7 @@
 - [ ] 
 
 ---
-# Question 10:
-
->[!Question]
+>[!Question] 10
 
 - [ ] 
 >[!Reason]
@@ -118,9 +97,7 @@
 - [ ] 
 
 ---
-# Question 11:
-
->[!Question]
+>[!Question] 11
 
 - [ ] 
 >[!Reason]
@@ -129,9 +106,7 @@
 - [ ] 
 
 ---
-# Question 12:
-
->[!Question]
+>[!Question] 12
 
 - [ ] 
 >[!Reason]
