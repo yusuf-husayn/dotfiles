@@ -2,23 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
+      "name": "C++ Debug (GDB)",
       "type": "cppdbg",
       "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/build/Debug/outDebug.exe",
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+      "miDebuggerPath": "C:\\Program Files\\Msys\\mingw64\\bin\\gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ]
+      ],
+      "preLaunchTask": "C/C++: g++.exe build active file"
     }
   ]
 }
