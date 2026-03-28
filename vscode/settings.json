@@ -1,240 +1,143 @@
 {
-  //
-  // === Appearance ===
-  //
-  "workbench.colorTheme": "Default Dark Modern",
-  "workbench.iconTheme": "vscode-icons",
-  "vsicons.presets.foldersAllDefaultIcon": true,
-  "vsicons.presets.hideExplorerArrows": true,
-  "vsicons.dontShowNewVersionMessage": true,
-  "workbench.colorCustomizations": {
-    "editorCursor.foreground": "#ffffffbc",
-    "terminalCursor.foreground": "#ffffffbc"
-  },
-  "editor.fontSize": 12,
-  // "editor.fontFamily": "Fira Code,Menlo for Powerline",
-  "editor.fontFamily": "Hack Nerd Font",
-  "workbench.statusBar.visible": true,
-  "breadcrumbs.enabled": false,
-  "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
-  "update.showReleaseNotes": false,
-  "window.zoomLevel": 1.0,
-  "editor.folding": false,
-  "zenMode.hideLineNumbers": false,
-  "editor.rulers": [79],
-  //
-  // === Terminal ===
-  //
-  "terminal.external.osxExec": "wezterm.app",
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.fontFamily": "Hack Nerd Font",
-  "terminal.integrated.cursorStyle": "line",
-  //
-  // === Editor Behavior ===
-  //
-  "editor.stickyScroll.enabled": true,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "editor.renderWhitespace": "none",
-  "editor.linkedEditing": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.formatOnSave": true,
-  "editor.suggest.insertMode": "replace",
-  "workbench.editor.enablePreview": false,
-  // "editor.autoClosingBrackets": "never",
-  // "editor.autoClosingQuotes": "never",
-  //
-  // === Formatters and Linters ===
-  //
-  // Python
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
+    "editor.renderWhitespace": "all",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "tabnine.experimentalAutoImports": true,
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "code-runner.showExecutionMessage": false,
+    "workbench.editor.empty.hint": "hidden",
+    "cmake.additionalCompilerSearchDirs": [
+        "C:/msys64/mingw32/bin",
+        "C:/msys64/mingw64/bin",
+        "C:/msys64/clang32/bin",
+        "C:/msys64/clang64/bin",
+        "C:/msys64/clangarm64/bin",
+        "C:/msys64/ucrt64/bin"
+    ],
+    "code-runner.clearPreviousOutput": true,
+    "editor.mouseWheelZoom": true,
+    "workbench.colorTheme": "Tokyo Night Storm",
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "chat.mcp.gallery.enabled": true,
+    "settingsSync.ignoredExtensions": [],
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "code-runner.fileDirectoryAsCwd": true,
+    "code-runner.runInTerminal": true,
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell",
+        "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      },
+      "Command Prompt": {
+        "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+      },
+      "Git Bash": {
+        "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+        "args": [
+          "--login",
+          "-i"
+        ]
+      }
     },
-    "editor.formatOnType": true
-  },
-  "isort.args": ["--profile", "black"],
-  "flake8.args": ["--max-line-length=88", "--extend-ignore=E203,E501,E731"],
-  // Javascript
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  // Typescript
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // SQL
-  "[sql]": {
-    "editor.defaultFormatter": "mtxr.sqltools"
-  },
-  //
-  // === Extensions Settings ===
-  //
-  // Jupyter
-  "jupyter.askForKernelRestart": false,
-  "notebook.lineNumbers": "on",
-  // JSON
-  "JSON-zain.json.autorefresh": true,
-  // Gitlens
-  "gitlens.hovers.currentLine.over": "line",
-  // SQL Tools
-  "sqltools.connections": [],
-  "sqltools.highlightQuery": false,
-  "sqltools.results.limit": 500,
-  //
-  // === Vim Config ===
-  //
-  "vim.leader": "<Space>",
-  "vim.hlsearch": true,
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useCtrlKeys": true,
-  "vim.useSystemClipboard": true,
-  "vim.highlightedyank.enable": true,
-  "vim.normalModeKeyBindingsNonRecursive": [
-    // Switch between buffers using Tab
-    {
-      "before": ["<Tab>"],
-      "commands": [":bnext"]
+    "code-runner.executorMap": {
+      "javascript": "node",
+      "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+      "c": "g++ $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+      "zig": "zig run",
+      "cpp": "\"/c/Program Files/Msys/mingw64/bin/g++.exe\" \"$fileName\" -o \"$fileNameWithoutExt.exe\" -lfreeglut -lopengl32 -lglu32 && \"./$fileNameWithoutExt.exe\"",
+      "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "php": "php",
+      "python": "python -u",
+      "perl": "perl",
+      "perl6": "perl6",
+      "ruby": "ruby",
+      "go": "go run",
+      "lua": "lua",
+      "groovy": "groovy",
+      "powershell": "powershell -ExecutionPolicy ByPass -File",
+      "bat": "cmd /c",
+      "shellscript": "bash",
+      "fsharp": "fsi",
+      "csharp": "scriptcs",
+      "vbscript": "cscript //Nologo",
+      "typescript": "ts-node",
+      "coffeescript": "coffee",
+      "scala": "scala",
+      "swift": "swift",
+      "julia": "julia",
+      "crystal": "crystal",
+      "ocaml": "ocaml",
+      "r": "Rscript",
+      "applescript": "osascript",
+      "clojure": "lein exec",
+      "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+      "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+      "racket": "racket",
+      "scheme": "csi -script",
+      "ahk": "autohotkey",
+      "autoit": "autoit3",
+      "dart": "dart",
+      "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+      "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+      "haskell": "runghc",
+      "nim": "nim compile --verbosity:0 --hints:off --run",
+      "lisp": "sbcl --script",
+      "kit": "kitc --run",
+      "v": "v run",
+      "sass": "sass --style expanded",
+      "scss": "scss --style expanded",
+      "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+      "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "sml": "cd $dir && sml $fileName",
+      "mojo": "mojo run",
+      "erlang": "escript",
+      "spwn": "spwn build",
+      "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+      "gleam": "gleam run -m $fileNameWithoutExt"
     },
-    {
-      "before": ["<S-Tab>"],
-      "commands": [":bprev"]
+    "C_Cpp.default.includePath": [
+      "C:/Program Files/Msys/mingw64/include/**"
+    ],
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
+    "github.copilot.enable": {
+      "*": false,
+      "plaintext": false,
+      "markdown": false,
+      "scminput": false
     },
-    // Create splits
-    {
-      "before": ["leader", "v"],
-      "commands": [":vsplit"]
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "on"
     },
-    {
-      "before": ["leader", "h"],
-      "commands": [":split"]
-    },
-    // Navigate panes using CTRL+hjkl
-    {
-      "before": ["<C-h>"],
-      "commands": ["workbench.action.navigateLeft"]
-    },
-    {
-      "before": ["<C-j>"],
-      "commands": ["workbench.action.navigateDown"]
-    },
-    {
-      "before": ["<C-k>"],
-      "commands": ["workbench.action.navigateUp"]
-    },
-    {
-      "before": ["<C-l>"],
-      "commands": ["workbench.action.navigateRight"]
-    },
-    // Navigate the Explorer
-    {
-      "before": ["leader", "E"],
-      "commands": ["workbench.explorer.fileView.focus"]
-    },
-    {
-      "before": ["leader", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    // Terminal
-    {
-      "before": ["leader", "t"],
-      "commands": ["workbench.action.togglePanel"]
-    },
-    // Closing and saving buffers
-    {
-      "before": ["leader", "s"],
-      "commands": [":w!"]
-    },
-    {
-      "before": ["leader", "q"],
-      "commands": [":q!"]
-    },
-    {
-      "before": ["leader", "x"],
-      "commands": [":x!"]
-    },
-    // Jump to markers
-    {
-      "before": ["[", "d"],
-      "commands": ["editor.action.marker.prev"]
-    },
-    {
-      "before": ["]", "d"],
-      "commands": ["editor.action.marker.next"]
-    },
-    // Code actions
-    {
-      "before": ["leader", "c", "a"],
-      "commands": ["editor.action.quickFix"]
-    },
-    // Search files
-    {
-      "before": ["leader", "s", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    // Command prompt
-    {
-      "before": ["leader", "p"],
-      "commands": ["workbench.action.showCommands"]
-    },
-    // Show definition
-    {
-      "before": ["g", "d"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    },
-    // Toggle activity bar
-    {
-      "before": ["leader", "u", "a"],
-      "commands": ["workbench.action.toggleActivityBarVisibility"]
-    },
-    // Move panes
-    {
-      "before": ["leader", "w", "l"],
-      "commands": ["workbench.action.moveActiveEditorGroupRight"]
-    },
-    {
-      "before": ["leader", "w", "h"],
-      "commands": ["workbench.action.moveActiveEditorGroupLeft"]
-    },
-    {
-      "before": ["leader", "w", "j"],
-      "commands": ["workbench.action.moveActiveEditorGroupDown"]
-    },
-    {
-      "before": ["leader", "w", "k"],
-      "commands": ["workbench.action.moveActiveEditorGroupUp"]
-    },
-    // Resize panes
-    {
-      "before": ["up"],
-      "commands": ["workbench.action.increaseViewSize"]
-    },
-    {
-      "before": ["down"],
-      "commands": ["workbench.action.decreaseViewSize"]
-    }
-  ],
-  "vim.visualModeKeyBindings": [
-    // Allow indenting from visual mode
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
-    },
-    {
-      "before": [">"],
-      "commands": ["editor.action.indentLines"]
-    }
-  ],
-  //
-  // === Other ===
-  //
-  "redhat.telemetry.enabled": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "telemetry.telemetryLevel": "off",
-  "aws.telemetry": false,
-  "makefile.configureOnOpen": false
+    "code-runner.saveFileBeforeRun": true,
+    "workbench.statusBar.visible": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "terminal.integrated.fontFamily": "CaskaydiaCove NF",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontWeight": "normal",
+    "workbench.colorCustomizations": {
+    "terminal.foreground": "#a9b1d6",
+    "terminal.ansiCyan": "#7dcfff",
+    "terminal.ansiGreen": "#9ece6a",
+    "terminal.ansiRed": "#f7768e",
+    "terminal.ansiYellow": "#e0af68"
+}
 }
